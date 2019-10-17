@@ -1,0 +1,27 @@
+<ng-container *ngTemplateOutlet="profileTemplate; context:ctx"></ng-container>
+
+<ng-template #profileTemplate let-userId="id" let-userName="name" let-userEmail="email" let-userContact="contact"
+  let-userAddress="address">
+  <div class="card">
+    <div class="card-header"><strong>User Profile</strong></div>
+    <div class="card-body">
+      <div style="text-align: center;">
+        <img class="card-img-top" src="./assets/images/avatar.png" alt="Card image" style="width:150px;">
+      </div>
+
+      <h4 class="card-title">{{userName | titlecase}}</h4>
+      <p class="card-text">
+        <strong>Email ID: </strong>{{userEmail}} <br>
+        <strong>Contact: </strong>{{userContact}} <br>
+      </p>
+      <hr><br>
+      <p class="card-text">
+        <button type="button" routerLink="/book-reserved" class="btn btn-primary" style="width: 100%;">Reserved
+          Books</button><br><br>
+        <button type="button" routerLink="/book-donate" class="btn btn-success" style="width: 100%;">Donate
+          Books</button>
+      </p>
+      <br>
+    </div>
+  </div>
+</ng-template>

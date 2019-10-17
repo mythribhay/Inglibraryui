@@ -1,0 +1,26 @@
+<ng-container *ngTemplateOutlet="dataGridTemplate; context:ctx">
+</ng-container>
+
+
+<ng-template #dataGridTemplate let-tblColoums="coloums" let-tblDatas="values">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th *ngFor="let col of tblColoums">{{col.header}}</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!isLoader">
+      <tr *ngFor="let data of tblDatas">
+        <td *ngFor="let col of tblColoums">{{data[col.field]}}</td>
+        <td>
+          <button type="button" class="btn btn-success" [routerLink]="['/book-detail',data.bookId]">View
+            Details</button>&nbsp;&nbsp;
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="isLoader">
+      <app-loader [display]="isLoader"></app-loader>
+    </tbody>
+  </table>
+</ng-template>

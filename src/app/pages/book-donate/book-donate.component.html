@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-3">
+    <app-profile></app-profile>
+  </div>
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">
+        <strong>Donate Books</strong>
+        <button style="float: right;" type="button" class="btn btn-secondary" routerLink="/dashboard">Back</button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <app-alert [visible]="isShowAlert" [type]="alertType" [msg]="alertMsg" (alertCloseEvent)="closeAlertBox()">
+            </app-alert>
+            <form *ngIf="donateBookForm" [formGroup]="donateBookForm" (ngSubmit)="onSubmit(donateBookForm.valid)">
+              <div class="form-group">
+                <label for="name">Book Name *:</label>
+                <input type="text" class="form-control" id="bookName" formControlName="bookName">
+                <span class="error"
+                  *ngIf="(bookName.dirty || bookName.touched) && bookName.invalid && bookName.errors.required">
+                  Book Name is required.
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="name">Author Name *:</label>
+                <input type="text" class="form-control" id="authorName" formControlName="authorName">
+                <span class="error"
+                  *ngIf="(authorName.dirty || authorName.touched) && authorName.invalid && authorName.errors.required">
+                  Author Name is required.
+                </span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" [disabled]="!donateBookForm.valid">Submit</button>&nbsp;
+              <button type="button" class="btn btn-secondary" (click)="revert()">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

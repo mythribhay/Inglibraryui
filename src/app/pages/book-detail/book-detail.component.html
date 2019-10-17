@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-3">
+    <app-profile></app-profile>
+  </div>
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header"><strong>Book Details</strong></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-10">
+            <div *ngIf="!isLoader">
+              <div>
+                <strong>Book Id#</strong> {{bookId}} <br><br>
+                <strong>Book Name</strong> {{bookName}} <br><br>
+                <strong>Author Name</strong> {{authorName}} <br><br>
+                <strong>Status</strong> {{status}} <br><br>
+              </div>
+              <app-alert [visible]="isAlert" [type]="alertType" [msg]="alertMsg" (alertCloseEvent)="closeAlertBox()">
+              </app-alert>
+              <div>
+                <button *ngIf="isIssued" [disabled]="isDisable" type="button" class="btn btn-success"
+                  (click)="reserveBook(status)">Issue Book</button>
+                <button *ngIf="isReserve" type="button" class="btn btn-success" (click)="reserveBook(status)">Reserve
+                  Book</button>
+              </div>
+            </div>
+            <div *ngIf="isLoader">
+              <app-loader [display]="isLoader"></app-loader>
+              <br><br>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-secondary" routerLink="/dashboard">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-3">
+    <app-profile></app-profile>
+  </div>
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">
+        <strong>Reserved Books</strong>
+        <button style="float: right;" type="button" class="btn btn-secondary" routerLink="/dashboard">Back</button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Book ID#</th>
+                  <th>Book Name</th>
+                  <th>Author Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of resrevedBooks">
+                  <td>{{book.bookId}}</td>
+                  <td>{{book.bookName}}</td>
+                  <td>{{book.authorName}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
