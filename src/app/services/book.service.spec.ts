@@ -39,7 +39,7 @@ describe('BookService', () => {
     service.getBooksList().subscribe(books => {
       expect(books).toEqual(mockResponseBody);
     });
-    const mockRequest = httpMock.expectOne(`${service.thirdApiUrl}/books/`);
+    const mockRequest = httpMock.expectOne(`${service.baseApiUrl}/books/`);
     expect(mockRequest.request.method).toBe('GET');
     mockRequest.flush(mockResponseBody);
   });
@@ -58,7 +58,7 @@ describe('BookService', () => {
     service.reserveBookRequest(id, reqObj).subscribe(books => {
       expect(books).toEqual(mockResponseBody);
     });
-    const mockRequest = httpMock.expectOne(`${service.thirdApiUrl}/books/${id}`);
+    const mockRequest = httpMock.expectOne(`${service.baseApiUrl}/books/${id}`);
     expect(mockRequest.request.method).toBe('POST');
     mockRequest.flush(mockResponseBody);
   });

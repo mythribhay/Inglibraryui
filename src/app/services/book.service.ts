@@ -26,16 +26,13 @@ export class BookService {
 
   constructor(private _http: HttpClient) { }
 
-  apiUrl: string = 'http://localhost:3000/books';
-
-  secondApiUrl: string = 'http://10.117.189.141:9900/inglibrary';
-  thirdApiUrl: string = 'http://10.117.189.56:8884/inglibrary';
+  baseApiUrl: string = 'http://10.117.189.62:8884/inglibrary';
 
   /**
    * getBooksList() is used to retrive all books list
   */
   getBooksList = (): Observable<IBooks[]> => {
-    return this._http.get<IBooks[]>(this.thirdApiUrl + '/books/');
+    return this._http.get<IBooks[]>(this.baseApiUrl + '/books/');
   }
 
   /**
@@ -58,7 +55,7 @@ export class BookService {
    * @param reqObj request body
   */
   reserveBookRequest = (id, reqObj) => {
-    return this._http.post(this.secondApiUrl + '/books/books/' + id, reqObj);
+    return this._http.post(this.baseApiUrl + '/books/books/' + id, reqObj);
   }
 
   /**
@@ -66,7 +63,7 @@ export class BookService {
    * @param userId User ID
   */
   gerAllReservedBookRequest = (userId): Observable<IBooksReserved[]> => {
-    return this._http.get<IBooksReserved[]>(this.thirdApiUrl + '/books/' + userId);
+    return this._http.get<IBooksReserved[]>(this.baseApiUrl + '/books/' + userId);
   }
 
   /**
@@ -74,6 +71,6 @@ export class BookService {
    * @param reqObj Request Object which hold userId, bookName, authorName
   */
   donateBookRequest = (reqObj) => {
-    return this._http.post(this.thirdApiUrl + '/books/book', reqObj);
+    return this._http.post(this.baseApiUrl + '/books/book', reqObj);
   }
 }

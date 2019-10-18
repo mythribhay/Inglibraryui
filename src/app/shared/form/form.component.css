@@ -1,3 +1,6 @@
 .error{
     color: lightcoral;
 }
+.mandatory {
+    color: lightcoral; 
+}

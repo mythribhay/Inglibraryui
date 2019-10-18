@@ -6,7 +6,7 @@
       </div>
       <app-alert [visible]="isShowAlert" [type]="alertType" [msg]="alertMsg" (alertCloseEvent)="closeAlertBox()">
       </app-alert>
-      <app-form *ngIf="!isShowAlert" [registerForm]="registerForm" (submitEvent)="submitForm($event)"></app-form>
+      <app-form *ngIf="isShowForm" [registerForm]="registerForm" (submitEvent)="submitForm($event)"></app-form>
       <div *ngIf="isShowAlert">
         <a routerLink="/login">Registered User/Login</a>
       </div>

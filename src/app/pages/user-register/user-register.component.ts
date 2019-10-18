@@ -12,6 +12,7 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(private _fb: FormBuilder, private userService: UserService) { }
 
+  isShowForm: boolean = true;
   isShowAlert: boolean = false;
   alertType: string = '';
   alertMsg: string = '';
@@ -50,6 +51,7 @@ export class UserRegisterComponent implements OnInit {
       if (data != null && data != undefined) {
         let user = JSON.parse(JSON.stringify(data));
         if (user.statusCode == 200) {
+          this.isShowForm = false;
           this.alertType = 'success';
           this.alertMsg = 'User Registered Successfully !!';
           this.isShowAlert = true;

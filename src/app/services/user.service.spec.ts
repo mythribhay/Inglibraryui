@@ -46,7 +46,7 @@ describe('UserService', () => {
     service.addUserRecord(mockRequestBody).subscribe(users => {
       expect(users).toEqual(mockResponseBody);
     });
-    const mockRequest = httpMock.expectOne(`${service.secondApiUrl}/user/register`);
+    const mockRequest = httpMock.expectOne(`${service.baseApiUrl}/user/register`);
     expect(mockRequest.request.method).toBe('POST');
     mockRequest.flush(mockResponseBody);
 
@@ -64,7 +64,7 @@ describe('UserService', () => {
     service.getUserDetails(userId).subscribe(user => {
       expect(user).toEqual(mockResponseBody);
     });
-    const mockRequest = httpMock.expectOne(`${service.secondApiUrl}/users/${userId}`);
+    const mockRequest = httpMock.expectOne(`${service.baseApiUrl}/users/${userId}`);
     expect(mockRequest.request.method).toBe('GET');
     mockRequest.flush(mockResponseBody);
 

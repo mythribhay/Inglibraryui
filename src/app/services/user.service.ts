@@ -14,11 +14,7 @@ export class UserService {
 
   constructor(private _http: HttpClient, private router: Router) { }
 
-  apiUrl: string = 'http://localhost:3000/crud-users';
-
-  firstApiUrl: string = 'http://10.117.189.62:8884/inglibrary';
-  secondApiUrl: string = 'http://10.117.189.141:9900/inglibrary';
-  thirdApiUrl: string = 'http://10.117.189.56:8884/inglibrary';
+  baseApiUrl: string = 'http://10.117.189.62:8884/inglibrary';
 
   /**
   * Declare loginStatus global veriable to track the login status
@@ -50,9 +46,10 @@ export class UserService {
   /**
   * userLogin function is to check user login
   * @param {FormGroup} loginData login form Object
+  * @returns 
   */
   userLogin = (loginData) => {
-    return this._http.post(this.firstApiUrl + '/login', loginData);
+    return this._http.post(this.baseApiUrl + '/login', loginData);
   }
 
   /**
@@ -60,7 +57,7 @@ export class UserService {
   * @param {FormGroup} userData registration form Object
   */
   addUserRecord = (userData) => {
-    return this._http.post(this.secondApiUrl + '/user/register', userData);
+    return this._http.post(this.baseApiUrl + '/user/register', userData);
   }
 
   /**
@@ -68,7 +65,7 @@ export class UserService {
   * @param {number} id user ID
   */
   getUserDetails = (id): Observable<IUsers> => {
-    return this._http.get<IUsers>(this.thirdApiUrl + '/users/' + id);
+    return this._http.get<IUsers>(this.baseApiUrl + '/users/' + id);
   }
 
 }

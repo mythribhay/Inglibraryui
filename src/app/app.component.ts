@@ -1,12 +1,18 @@
+/*Import default angular class start*/
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+/*Import default angular class end*/
+
+/*application related class and service start*/
 import { UserService } from './services/user.service';
+/*application related class and service end*/
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 
   title = 'Books Management System';
