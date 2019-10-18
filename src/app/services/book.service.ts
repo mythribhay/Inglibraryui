@@ -1,8 +1,23 @@
+/**
+ * Injectable is Angular core module to add dependency to service
+*/
 import { Injectable } from '@angular/core';
+/**
+ * HttpClient is Angular core module to do http requests
+*/
 import { HttpClient } from '@angular/common/http';
+/**
+ * IBooks is an interface for book
+*/
 import { IBooks } from '../models/books';
+/**
+ * IBooksReserved is an interface for reserved books
+*/
 import { IBooksReserved } from '../models/bookReserved';
-import { Observable, Subject, BehaviorSubject, from } from 'rxjs';
+/**
+ * Observable,Subject is to handle data response from server
+*/
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

@@ -16,27 +16,37 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*#onSubmit will call on form submit*/
-  onSubmit(valid) {
+  /**
+   * onSubmit will call on form submit
+  */
+  onSubmit = (valid) => {
     this.submitEvent.emit(valid);
   }
 
-  /*getter for name field*/
+  /**
+   * getter for name field
+  */
   get userName() {
     return this.registerForm.get('userName');
   }
 
-  /*getter for phone field*/
+  /**
+   * getter for phone field
+  */
   get contact() {
     return this.registerForm.get('contact');
   }
 
-  /*getter for password field*/
+  /**
+   * getter for password field
+  */
   get password() {
     return this.registerForm.get('password');
   }
 
-  /*getter for email field*/
+  /**
+   * getter for email field
+  */
   get email() {
     return this.registerForm.get('email');
   }

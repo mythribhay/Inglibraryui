@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       this.userService.userLogin(formObj).subscribe(data => {
         if (data != null && data != undefined) {
           let user = JSON.parse(JSON.stringify(data))
-          if (user.statusCode == 201) {
+          if (user.statusCode == 200) {
             this.isLoginError = false;
             this.loginEvent.emit(user);
           } else {
