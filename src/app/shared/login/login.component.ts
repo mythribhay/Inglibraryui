@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
             this.isLoginError = false;
             this.loginEvent.emit(user);
           } else {
+            this.alertMsg = user.message;
             this.isLoginError = true;
           }
         } else {
